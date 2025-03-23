@@ -1,26 +1,29 @@
 import Search from "../Search/Search";
 import Table from "../Table/Table";
 import Pagination from "../Pagination/Pagination";
+import CreateUser from "../CreateUser/CreateUser";
 import Section from "../Section/Section";
 import { useEffect, useState } from "react";
 
 export default function Main() {
 
-   
+    const [addUser, setAddUser] = useState(false);
+    
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:3030/jsonstore/users`)
-    //     .then(res => res.json())
-    //     .then(data => setUsers(Object.values(data)))
-    // }, [])
+    const handleSetUser = (data) => {
+          setAddUser(data);
+    }
 
+
+ 
     
     
     return (
         <main className="main">
              
-           <Section />
-           
+           <Section setUser = {handleSetUser}/>
+         
+           {addUser && <CreateUser setUser = {handleSetUser}/>}
      
         </main>
     )

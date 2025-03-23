@@ -5,13 +5,23 @@ import NoContent from "../NoContent/NoContent";
 import Pagination from "../Pagination/Pagination";
 import TableRow from "../TableRow/TableRow";
 import Table from "../Table/Table";
+import { useState } from "react";
 
-export default function Section() {
+export default function Section({
+    setUser
+}) {
 
-    
+  const [newUser, setNewUser] = useState();
+
+    function addUser() {
+      console.log("click");
+      
+    }
     
 
     return (
+
+
         <section className="card users-container">
         {/* <!-- Search bar component --> */}
         <Search />
@@ -41,11 +51,13 @@ export default function Section() {
         </div>
   
         {/* <!-- New user button  --> */}
-        <button className="btn-add btn">Add new user</button>
+        <button className="btn-add btn" onClick={() => setUser(true)}>Add new user</button>
   
         {/* <!-- Pagination component  --> */}
       <Pagination />
       </section>
+
+      
   
     )
 }

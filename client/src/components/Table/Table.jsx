@@ -11,7 +11,7 @@ export default function Table() {
   useEffect(() => {
      getAll()
      .then(data => setUsers(data))
-     .then(x => console.log(x))
+     
   }, [])
   
  return (

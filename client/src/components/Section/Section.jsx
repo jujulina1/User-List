@@ -9,15 +9,17 @@ import { useState } from "react";
 
 export default function Section({
     setUser,
-    editUser
+    editUser,
+    users,
+    infoClick
 }) {
-
-
+    console.log(users);
+    
+    const [spinner, setSpinner] = useState(false);
 
     return (
 
-
-        <section className="card users-container">
+       <section className="card users-container">
         {/* <!-- Search bar component --> */}
         <Search />
   
@@ -29,7 +31,8 @@ export default function Section({
   
           {/* <div className="loading-shade"> */}
           {/* <!-- Loading spinner  --> */}
-           {/* <div className="spinner"></div>  */}
+          {spinner && <div className="spinner"></div>}
+         
   
           {/* No users added yet   */}
           {/* <NoUsers/> */}
@@ -42,7 +45,7 @@ export default function Section({
           {/* <Error /> */}
           {/* </div>  */}
   
-         <Table editUser = {editUser}/>
+         <Table editUser = {editUser} users = {users} infoClick = {infoClick}/>
         </div>
   
         {/* <!-- New user button  --> */}

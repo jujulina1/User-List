@@ -1,4 +1,5 @@
 export default function CreateUser({
+  onSubmit,
   setUser
 }) {
     return (
@@ -17,7 +18,7 @@ export default function CreateUser({
                 </svg>
               </button>
             </header>
-            <form>
+            <form onSubmit={onSubmit}>
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="firstName">First name</label>

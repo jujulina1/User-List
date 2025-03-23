@@ -1,26 +1,33 @@
+
+
 export default function TableRow({
+  _id,
   firstName,
   lastName,
   email,
   imageUrl,
   phoneNumber,
   createdAt,
-  editUser
+  editUser,
+  infoClick
 
 }) {
 
-   
-  
-   
+
+
+    //  console.log(user);
+     
     let data = new Date(createdAt);
     let newData = (data.toDateString());
+    // console.log(_id);
+    
 
     
     return (
         <tr>
         <td>
           <img src={imageUrl}
-            alt='`${}`' className="image" />
+            alt='photo' className="image" />
         </td>
         <td>{firstName}</td>
         <td>{lastName}</td>
@@ -30,7 +37,7 @@ export default function TableRow({
         <td>{newData}</td>
 
         <td className="actions">
-          <button className="btn edit-btn" title="Edit" onClick={() => editUser(true)}>
+          <button className="btn edit-btn" title="Edit" onClick={(e, _id) => editUser(true)}>
             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen-to-square"
               className="svg-inline--fa fa-pen-to-square" role="img" xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 532 512">
@@ -47,7 +54,7 @@ export default function TableRow({
               </path>
             </svg>
           </button>
-          <button className="btn info-btn" title="Info">
+          <button className="btn info-btn" title="Info" onClick={() => infoClick(true, _id)}>
             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info"
               className="svg-inline--fa fa-info" role="img" xmlns="http://www.w3.org/2000/svg"
               viewBox="-150 0 512 612">

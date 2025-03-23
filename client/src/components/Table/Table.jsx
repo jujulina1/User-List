@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { getAll } from "../../services/UserService";
 import TableRow from "../TableRow/TableRow";
 
-export default function Table() {
+export default function Table({
+  editUser
+}) {
 
   const [users, setUsers] = useState([]);
   console.log(users);
@@ -72,7 +74,7 @@ export default function Table() {
         </thead>
         <tbody>
           {/* <!-- Table row component --> */}
-          {users.map(user => <TableRow key={user._id} {...user}/>)}
+          {users.map(user => <TableRow key={user._id} {...user} editUser={editUser}/>)}
          
         </tbody>
       </table>

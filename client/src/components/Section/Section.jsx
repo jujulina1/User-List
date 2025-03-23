@@ -8,16 +8,11 @@ import Table from "../Table/Table";
 import { useState } from "react";
 
 export default function Section({
-    setUser
+    setUser,
+    editUser
 }) {
 
-  const [newUser, setNewUser] = useState();
 
-    function addUser() {
-      console.log("click");
-      
-    }
-    
 
     return (
 
@@ -47,7 +42,7 @@ export default function Section({
           {/* <Error /> */}
           {/* </div>  */}
   
-         <Table />
+         <Table editUser = {editUser}/>
         </div>
   
         {/* <!-- New user button  --> */}
